@@ -11,3 +11,8 @@ exports.answer = function(req,res){
     res.render('quizes/answer', {respuesta:'Incorrecto'});
   }
 };
+
+//GET /quizes/question
+exports.creditos = function(req, res){
+ res.render('author',{});
+};
