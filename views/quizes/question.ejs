@@ -1,6 +1,10 @@
-
+<script>
+function myFunction() {
+    document.getElementById("respuesta").value = "";
+}
+</script>
     <form method="get" action="/quizes/answer">
       <p>Pregunta: <%= pregunta %> </p>
-      <input type="text" name="respuesta" value="Responda aqui">
+      <input type="text" name="respuesta" id="respuesta" value="Responda aqui" onclick="myFunction()">
       <input type="submit" value="Enviar">
     </form>
