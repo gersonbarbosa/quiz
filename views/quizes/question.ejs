@@ -1,10 +1,13 @@
 <script>
-function myFunction() {
+function limpaCaixa() {
     document.getElementById("respuesta").value = "";
+}
+function ajuda() {
+      if (document.getElementById("respuesta").value == "") {document.getElementById("respuesta").value = "Responda aqui";}
 }
 </script>
     <form method="get" action="/quizes/answer">
       <p>Pregunta: <%= pregunta %> </p>
-      <input type="text" name="respuesta" id="respuesta" value="Responda aqui" onclick="myFunction()">
+      <input type="text" style="color:gray" name="respuesta" id="respuesta" value="Responda aqui" onfocus="limpaCaixa()" onblur="ajuda()" />
       <input type="submit" value="Enviar">
     </form>
