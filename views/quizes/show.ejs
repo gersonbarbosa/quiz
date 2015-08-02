@@ -1,0 +1,14 @@
+<script>
+function limpaCaixa() {
+    document.getElementById("respuesta").value = "";
+}
+function ajuda() {
+      if (document.getElementById("respuesta").value == "") {document.getElementById("respuesta").value = "Respuesta";}
+}
+</script>
+
+<form method="get" action="/quizes/<%= quiz.id %>/answer">
+  <p>Pregunta: <%= quiz.pregunta %> </p>
+  <input type="text" style="color:gray" name="respuesta" id="respuesta" value="Respuesta" onfocus="limpaCaixa()" onblur="ajuda()" />
+  <input type="submit" value="Enviar">
+</form>

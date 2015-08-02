@@ -34,19 +34,31 @@ var sequelize = new Sequelize(
 //importar la definicion de la tabla Quiz
 var quiz_path = path.join(__dirname,'quiz');
 var Quiz = sequelize.import(quiz_path);
+var contador;
 
 exports.Quiz = Quiz; //exportar la tabla quiz
 
 //sequelize.sync() crea e inicializa tabla de preguntas en DB
 sequelize.sync().then(function(){
   //then(..) ejecuta el manejador una vez creada la tabla
+
+
+// deleta todas as linhas da tabela para sempre criar em seguida
+//  Quiz.destroy({ respuesta: ['Roma','Lisboa'] });
+
   Quiz.count().then(function(count){
     if(count===0){
+
       Quiz.create({
         pregunta:'Capital de Italia',
         respuesta:'Roma'
+      });
+      Quiz.create({
+        pregunta:'Capital de Portugal',
+        respuesta:'Lisboa'
       })
       .then(function(){console.log('Base de datos inicializada')});
+
     };
   });
 });
